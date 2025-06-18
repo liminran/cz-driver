@@ -9,33 +9,21 @@
       "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal"
-    },
-    "production": {
-      "autoIncrement": true
-    },
-    "apk": {
+      "distribution": "internal",
       "android": {
         "buildType": "apk"
       }
     },
-    "simulator": {
+    "local": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "credentialsSource": "remote",
       "ios": {
-        "simulator": true
-      }
-    },
-    "development-client": {
-      "android": {
-        "gradleCommand": ":app:assembleRelease",
-        "buildType": "apk",
-        "developmentClient": true
-      }
-    },
-    "local-apk": {
-      "android": {
-        "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease",
-        "withoutCredentials": true
+        "resourceClass": "default"
       }
     }
   },
