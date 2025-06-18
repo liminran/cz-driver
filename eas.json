@@ -23,7 +23,8 @@
       "distribution": "store",
       "credentialsSource": "remote",
       "ios": {
-        "resourceClass": "default"
+        "resourceClass": "default",
+        "autoIncrement": true
       }
     }
   },
