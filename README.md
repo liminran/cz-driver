@@ -90,3 +90,5 @@ Apply to README.md
 按照方法一或方法二进行正式打包
 如果一直无法成功，可能需要考虑使用云构建服务如Codemagic或AppCenter
 当网络和工具链问题解决后，就可以成功生成APK和iOS应用了。
+
+git remote add origin https://github.com/liminran/cz-driver.git
