@@ -2505,18 +2505,18 @@
       "id": 35,
       "translations": {
         "zh": {
-          "question": "如果您在Metrobús的独家车道附近的车道中循环并想克服另一辆较慢的车辆，您可以使用独家车道进行此操作",
+          "question": "如果您在与地铁专用车道相邻的车道上行驶，并希望超越另一辆速度较慢的车辆，您可以使用专用车道进行此操作吗？",
           "answers": [
             {
-              "text": "不，因为禁止它通过所述车道永久或瞬时循环。",
+              "text": "不可以，因为禁止永久或短暂地通过该车道。",
               "correct": true
             },
             {
-              "text": "是的，只有当该车道外侧的纵向线不连续时。",
+              "text": "可以，只有当该车道外侧的纵线不连续时才可以。",
               "correct": false
             },
             {
-              "text": "是的，因为只允许使用它的操作。",
+              "text": "可以，因为只有使用该车道才能进行某些操作。",
               "correct": false
             }
           ]
@@ -3614,7 +3614,7 @@
       "id": 50,
       "translations": {
         "zh": {
-          "question": "¿Qué debe hacer usted si su vehículo queda inmovilizado en un túnel",
+          "question": "如果您的车辆在隧道中无法移动，该怎么办",
           "answers": [
             {
               "text": "将车辆关闭，尽快离开隧道。",
@@ -6009,7 +6009,7 @@
       "id": 83,
       "translations": {
         "zh": {
-          "question": "根据第 2265 号法律，在 Caba 提交的 0 公里车辆应何时进行第一次 VTV",
+          "question": "根据第2265号法律，第一辆VTV应何时在CABA提交0公里车辆报告？",
           "answers": [
             {
               "text": "3年后，当月行驶里程等于或超过6万公里",
@@ -6020,7 +6020,7 @@
               "correct": false
             },
             {
-              "text": "在对应的一个月中，紧接着一年了。",
+              "text": "一年后，在相应月份执行。",
               "correct": false
             }
           ]
@@ -13376,18 +13376,18 @@
       "id": 184,
       "translations": {
         "zh": {
-          "question": "以下哪个车辆不违反",
+          "question": "以下哪种车辆不违规",
           "answers": [
             {
               "text": "是的，除非车辆朝相反的方向接近。",
               "correct": false
             },
             {
-              "text": "不，因为水平界定禁止它。",
+              "text": "否，因为水平分界线禁止这样做。",
               "correct": true
             },
             {
-              "text": "是的，制作相应的光信号，以及沿相反方向循环的车辆是否远。",
+              "text": "是的，发出相应的信号灯，并且如果对面行驶的车辆距离较远。",
               "correct": false
             }
           ]
@@ -13451,7 +13451,7 @@
       "id": 185,
       "translations": {
         "zh": {
-          "question": "以下哪个车辆不违反",
+          "question": "以下哪种车辆不违规",
           "answers": [
             {
               "text": "车辆A和B。",

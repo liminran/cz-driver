@@ -17111,7 +17111,7 @@
     "id": 225,
     "translations": {
       "zh": {
-        "question": "在高速公路或双重Carrieway上允许进行尾声",
+        "question": "高速公路或双车道上允许尾随吗",
         "answers": [
           {
             "text": "是的，因为不会有迎接的流量。",
@@ -17930,7 +17930,7 @@
     "id": 234,
     "translations": {
       "zh": {
-        "question": "什么时候应该驾驶员使用车辆的revew miror",
+        "question": "驾驶员何时应使用车辆的后视镜",
         "answers": [
           {
             "text": "在更改方向之前",
@@ -18931,22 +18931,22 @@
     "id": 245,
     "translations": {
       "zh": {
-        "question": "希望执行U -urn的驾驶员应该做什么",
+        "question": "驾驶员想要掉头时应该怎么做",
         "answers": [
           {
-            "text": "在接近交通的情况下检查和后面检查。",
+            "text": "检查前后来车。",
             "correct": true
           },
           {
-            "text": "仅在城市速度限制区域以外进行'U'-urn。",
+            "text": "仅在市区限速区外掉头。",
             "correct": false
           },
           {
-            "text": "在后面检查是否接近流量并发出信号以停止。",
+            "text": "检查后方来车，并示意停车。",
             "correct": false
           },
           {
-            "text": "提前检查接近流量并发出信号以停止。",
+            "text": "检查前后来车，并示意停车。",
             "correct": false
           }
         ]
@@ -19204,7 +19204,7 @@
     "id": 248,
     "translations": {
       "zh": {
-        "question": "驾驶员如果开车并感觉到蒂拉德应该怎么办",
+        "question": "如果驾驶员在驾驶过程中感到疲劳，应该怎么做？",
         "answers": [
           {
             "text": "驾驶员应该停下来休息一下。",
@@ -30761,10 +30761,10 @@
     "id": 443,
     "translations": {
       "zh": {
-        "question": "驾驶员晚上在Anlit Road开车时该怎么办",
+        "question": "夜间在没有照明的道路上行驶时，驾驶员应该怎么做",
         "answers": [
           {
-            "text": "驱动与反射螺柱线一样近。",
+            "text": "尽可能靠近反光钉线行驶。",
             "correct": false
           },
           {
@@ -30776,7 +30776,7 @@
             "correct": false
           },
           {
-            "text": "梅宁在迎接迎面而来的流量时的速度。",
+            "text": "与对面车辆相遇时，请保持车速。",
             "correct": false
           }
         ]
@@ -30852,7 +30852,7 @@
     "id": 444,
     "translations": {
       "zh": {
-        "question": "驾驶员晚上在Anlit Road开车时该怎么办",
+        "question": "夜间在无路灯的道路上行驶时，驾驶员应该怎么做",
         "answers": [
           {
             "text": "在道路中央开车。",
@@ -30863,11 +30863,11 @@
             "correct": true
           },
           {
-            "text": "梅宁在迎接迎面而来的流量时的速度。",
+            "text": "与对面车辆相遇时，请保持车速。",
             "correct": false
           },
           {
-            "text": "驱动与反射螺柱线一样近。",
+            "text": "请尽可能靠近反光道钉线行驶。",
             "correct": false
           }
         ]
@@ -31398,22 +31398,22 @@
     "id": 450,
     "translations": {
       "zh": {
-        "question": "与骑自行车的人和行人有关，驾驶员在黑暗的冬季杂草和em上驾驶时应该知道什么",
+        "question": "关于骑行者和行人，驾驶员在冬季黑暗的早晨和夜晚行驶在没有路灯的乡村道路上时应该注意什么？",
         "answers": [
           {
             "text": "汽车您的轮胎压力正确。",
             "correct": false
           },
           {
-            "text": "他们将永远穿着反光衣服和照明。",
+            "text": "他们将始终穿着反光服并佩戴反光灯。",
             "correct": false
           },
           {
-            "text": "在较差的照明条件下，骑自行车的人非常脆弱。",
+            "text": "在光线不足的情况下，骑行者更容易受到伤害。",
             "correct": true
           },
           {
-            "text": "在较差的照明条件下，骑自行车的人不太容易受到影响。",
+            "text": "在光线不足的情况下，骑行者更容易受到伤害。",
             "correct": false
           }
         ]
@@ -31489,7 +31489,7 @@
     "id": 451,
     "translations": {
       "zh": {
-        "question": "与骑自行车的人和行人有关，驾驶员在黑暗的冬季杂草和em上驾驶时应该知道什么",
+        "question": "关于骑行者和行人，驾驶员在冬季黑暗的早晨和夜晚行驶在无路灯的乡村道路上时应该注意哪些事项？",
         "answers": [
           {
             "text": "汽车轮胎具有正确的轮胎压力。",
@@ -31500,11 +31500,11 @@
             "correct": false
           },
           {
-            "text": "驾驶员应该对该国的骑自行车者和行人额外注意，因为他们可能看不到。",
+            "text": "在乡村地区，驾驶员应格外注意骑行者和行人，因为他们可能难以被清晰看到。",
             "correct": true
           },
           {
-            "text": "在较差的照明条件下，骑自行车的人和行人不太脆弱。",
+            "text": "在光线不足的情况下，骑行者和行人的安全风险较低。",
             "correct": false
           }
         ]
@@ -31853,7 +31853,7 @@
     "id": 455,
     "translations": {
       "zh": {
-        "question": "在车辆上显示L板需要什么驱动器",
+        "question": "哪些司机需要在车上挂 L 牌",
         "answers": [
           {
             "text": "在接力赛类别中拥有全学位的持有人的学习者司机。",
@@ -31864,7 +31864,7 @@
             "correct": false
           },
           {
-            "text": "第二任学习者的驾驶员允许。",
+            "text": "持有第二张学习驾驶许可证的驾驶员。",
             "correct": false
           },
           {
@@ -32126,7 +32126,7 @@
     "id": 458,
     "translations": {
       "zh": {
-        "question": "L板应该如何堆肥",
+        "question": "L 型板应该如何构图",
         "answers": [
           {
             "text": "在黄色背景上的白色L。",
@@ -32308,18 +32308,18 @@
     "id": 460,
     "translations": {
       "zh": {
-        "question": "Laarner允许持有人免于必须由合格的司机助长",
+        "question": "哪些学习许可证持有者无需由合格驾驶员陪同",
         "answers": [
           {
-            "text": "学习者允许A类和M中的持有人。",
+            "text": "A、A1 和 M 类学习许可证持有者。",
             "correct": true
           },
           {
-            "text": "所有学习者都允许B类和W类中的持有者。",
+            "text": "所有 B 和 W 类学习许可证持有者。",
             "correct": false
           },
           {
-            "text": "没有任何。",
+            "text": "无。",
             "correct": false
           },
           {
@@ -32399,22 +32399,22 @@
     "id": 461,
     "translations": {
       "zh": {
-        "question": "在哪里找到Esir车辆的总重量",
+        "question": "驾驶员在哪里可以找到车辆的总重量",
         "answers": [
           {
             "text": "在车辆中的金属板上。",
             "correct": true
           },
           {
-            "text": "在转速仪上。",
+            "text": "在行车记录仪上。",
             "correct": false
           },
           {
-            "text": "在保险光盘上。",
+            "text": "在保险单上。",
             "correct": false
           },
           {
-            "text": "在税收光盘上。",
+            "text": "在税务单上。",
             "correct": false
           }
         ]
@@ -32672,10 +32672,10 @@
     "id": 464,
     "translations": {
       "zh": {
-        "question": "如果驾驶员想驾驶车辆，但税收光盘已过期，他们该怎么办",
+        "question": "如果驾驶员想驾驶车辆，但税牌已过期，该怎么办？",
         "answers": [
           {
-            "text": "通知gardai。",
+            "text": "通知爱尔兰警察。",
             "correct": false
           },
           {
@@ -33400,22 +33400,22 @@
     "id": 472,
     "translations": {
       "zh": {
-        "question": "当驾驶员想开车时，如果der",
+        "question": "当驾驶员想要驾驶车辆但不确定自己是否在保险范围内时，应该怎么做？",
         "answers": [
           {
-            "text": "在其保险公司确认保险之前，他们不应开车。",
+            "text": "在保险公司确认承保范围之前，不应驾驶车辆。",
             "correct": true
           },
           {
-            "text": "与他们当地的加尔达站联系。",
+            "text": "请咨询当地警察局。",
             "correct": false
           },
           {
-            "text": "与他们当地的汽车税办公室联系。",
+            "text": "请咨询当地机动车税务局。",
             "correct": false
           },
           {
-            "text": "仅在短距离内驱动它。",
+            "text": "只驾驶短距离车辆。",
             "correct": false
           }
         ]
@@ -33491,22 +33491,22 @@
     "id": 473,
     "translations": {
       "zh": {
-        "question": "在公共道路上驾驶车辆所需的最低保险盖是什么",
+        "question": "在公共道路上驾驶车辆所需的最低保险额是多少",
         "answers": [
           {
-            "text": "事故人员。",
+            "text": "人身意外险。",
             "correct": false
           },
           {
-            "text": "第三方，火与盗窃。",
+            "text": "第三方责任险、火灾和盗窃险。",
             "correct": false
           },
           {
-            "text": "第三者。",
+            "text": "第三方责任险。",
             "correct": true
           },
           {
-            "text": "理解。",
+            "text": "综合险。",
             "correct": false
           }
         ]
@@ -34128,14 +34128,14 @@
     "id": 480,
     "translations": {
       "zh": {
-        "question": "如果驾驶员涉及到他们认为是Anthere驾驶员错的事件，该怎么办",
+        "question": "如果驾驶员认为事故是其他驾驶员的错，应该怎么做？",
         "answers": [
           {
-            "text": "立即停止并与参与的其他人交换细节。",
+            "text": "立即停车并与另一名涉事人员交换详细信息。",
             "correct": true
           },
           {
-            "text": "继续前往最近的加尔达站，然后将其报告。",
+            "text": "继续前行至最近的爱尔兰警察局并尽快报案。",
             "correct": false
           },
           {
@@ -34143,7 +34143,7 @@
             "correct": false
           },
           {
-            "text": "与另一个驱动程序交换详细信息。",
+            "text": "与另一名驾驶员交换驾照详细信息。",
             "correct": false
           }
         ]
@@ -51509,7 +51509,7 @@
     "id": 672,
     "translations": {
       "zh": {
-        "question": "学习者的持有人何时必须允许L-Platas在EAS显示器上",
+        "question": "学习驾照持有者何时必须在车辆上悬挂L牌",
         "answers": [
           {
             "text": "在没有合格的驾驶员驾驶的同时。",
@@ -51520,7 +51520,7 @@
             "correct": true
           },
           {
-            "text": "在驾驶员的第一个临时毕业生期间。",
+            "text": "仅在驾驶人的第一个临时驾照有效期内。",
             "correct": false
           },
           {
@@ -51964,22 +51964,22 @@
     "id": 678,
     "translations": {
       "zh": {
-        "question": "您已经停滞在uguard级交叉的中间，无法重新启动发动机。警告钟正在响。驾驶员应该做什么",
+        "question": "一名司机在无人看守的平交道口中间抛锚了，无法重新启动引擎。警铃响了。司机应该怎么做？",
         "answers": [
           {
-            "text": "避开交叉点并给信号操作员打电话，以便可以停止火车。",
+            "text": "请走出道口并致电信号操作员，以便列车停车。",
             "correct": true
           },
           {
-            "text": "推动车辆清除过境点。",
+            "text": "请将车辆推离道口。",
             "correct": false
           },
           {
-            "text": "尝试将发动机用第一档代替。",
+            "text": "请尝试以一档重新启动引擎。",
             "correct": false
           },
           {
-            "text": "留在车上并警告即将来临的火车。",
+            "text": "请留在车上并警告驶来的列车。",
             "correct": false
           }
         ]
@@ -52146,7 +52146,7 @@
     "id": 680,
     "translations": {
       "zh": {
-        "question": "什么时候允许孩子与Esir站在一起",
+        "question": "儿童什么时候可以抬头站在打开的天窗外？",
         "answers": [
           {
             "text": "孩子永远不允许这样做。",
@@ -53329,22 +53329,22 @@
     "id": 694,
     "translations": {
       "zh": {
-        "question": "当Attacrace到拖车到他们的车辆时，驾驶员应该检查什么",
+        "question": "将拖车挂到车上时，驾驶员应该检查哪些内容？",
         "answers": [
           {
-            "text": "将负载置于拖车的前部，并紧紧固定拖车销。",
+            "text": "货物是否放置在拖车前部，拖车销是否牢固。",
             "correct": false
           },
           {
-            "text": "您有备用车轮的拖车。",
+            "text": "拖车是否有备胎。",
             "correct": false
           },
           {
-            "text": "负载均匀地倾斜。",
+            "text": "货物是否分布均匀。",
             "correct": true
           },
           {
-            "text": "拖车弹簧润滑了。",
+            "text": "拖车弹簧是否润滑良好。",
             "correct": false
           }
         ]
@@ -53693,22 +53693,22 @@
     "id": 698,
     "translations": {
       "zh": {
-        "question": "何时允许驾驶员通过drawbar携带通行证",
+        "question": "驾驶员何时可以在拖车牵引杆上载客",
         "answers": [
           {
-            "text": "当该人成为B类驾驶执照时。",
+            "text": "持有 B 类驾驶执照时。",
             "correct": false
           },
           {
-            "text": "拖到拖车越野时。",
+            "text": "越野拖挂拖车时。",
             "correct": false
           },
           {
-            "text": "绝不。",
+            "text": "从不。",
             "correct": true
           },
           {
-            "text": "当拖到拖车外拉德时，该人有B类驾驶虱子。",
+            "text": "越野拖挂拖车且持有 B 类驾驶执照时。",
             "correct": false
           }
         ]
