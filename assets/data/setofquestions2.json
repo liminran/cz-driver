@@ -2278,7 +2278,7 @@
     "id": 26,
     "translations": {
       "zh": {
-        "question": "在Roadworks，这个标志意味着什么",
+        "question": "在道路施工时，这个标志是什么意思",
         "answers": [
           {
             "text": "谨慎处理。",
@@ -2369,7 +2369,7 @@
     "id": 27,
     "translations": {
       "zh": {
-        "question": "在Roadworks，这个标志意味着什么",
+        "question": "在道路施工时，这个标志是什么意思",
         "answers": [
           {
             "text": "停在标志之前或处于标志。",
@@ -10195,18 +10195,18 @@
     "id": 114,
     "translations": {
       "zh": {
-        "question": "何时在Roadworks进行临时派出限制Appty",
+        "question": "道路施工期间何时适用临时限速",
         "answers": [
           {
             "text": "仅在公路工人在现场时申请。",
             "correct": false
           },
           {
-            "text": "如果没有迎接的流量，则不必服从。",
+            "text": "如果没有对面来车，则无需遵守。",
             "correct": false
           },
           {
-            "text": "请勿在公路工作现场使用的地球移动车辆。",
+            "text": "不适用于道路施工现场正在使用的土方车辆。",
             "correct": false
           },
           {
@@ -11749,7 +11749,7 @@
             "correct": true
           },
           {
-            "text": "Clearway在100名死亡者处。",
+            "text": "前方 100 米处畅通无阻。",
             "correct": false
           },
           {
@@ -15757,7 +15757,7 @@
             "correct": false
           },
           {
-            "text": "Maininin正常速度和道路位置。",
+            "text": "保持正常速度和道路位置。",
             "correct": false
           },
           {
@@ -21118,7 +21118,7 @@
         "question": "当在交通信号灯处停下来，绿灯亮起时，驾驶员应该做什么",
         "answers": [
           {
-            "text": "与Oher Divers相同的速度加速。",
+            "text": "加速到与其他驾驶员相同的速度。",
             "correct": false
           },
           {
@@ -21126,7 +21126,7 @@
             "correct": true
           },
           {
-            "text": "迅速加速以免延迟流量。",
+            "text": "快速加速以减缓交通。",
             "correct": false
           },
           {
@@ -27674,7 +27674,7 @@
             "correct": true
           },
           {
-            "text": "Parking for buses and cyclists on the left.",
+            "text": "左侧为公交车和自行车停车位。",
             "correct": false
           },
           {
@@ -28774,7 +28774,7 @@
             "correct": false
           },
           {
-            "text": "在公交LAN Infiralt板上指定的孔外。",
+            "text": "公交车道信息牌上指定的时间之外。",
             "correct": true
           }
         ]
@@ -28850,14 +28850,14 @@
     "id": 355,
     "translations": {
       "zh": {
-        "question": "沿着双重Carrieway驾驶时，驾驶员应在什么位置",
+        "question": "沿着双车道驾驶时，驾驶员应在什么位置",
         "answers": [
           {
             "text": "在右手车道上，除非驾驶拖拉机或工具。",
             "correct": false
           },
           {
-            "text": "在他们选择的Eithher巷上。",
+            "text": "在他们选择的任意一条车道上。",
             "correct": false
           },
           {
@@ -32217,7 +32217,7 @@
     "id": 459,
     "translations": {
       "zh": {
-        "question": "Laarner是哪些道路不允许开车",
+        "question": "学习许可证持有者不允许在哪些道路上驾驶",
         "answers": [
           {
             "text": "他们可能不会在双通道上开车。",
@@ -32501,7 +32501,7 @@
             "correct": true
           },
           {
-            "text": "是的，但是在Prisous Disc到期后，不超过14个SEYS。",
+            "text": "可以，但有效期不得超过上一张光盘到期后的 14 天。",
             "correct": false
           },
           {
@@ -33585,19 +33585,19 @@
         "question": "这个标志是什么意思",
         "answers": [
           {
-            "text": "T-Junction在重要的道路上前进。",
+            "text": "前方有一条重要道路的T字路口。",
             "correct": true
           },
           {
-            "text": "右边的囊。",
+            "text": "右侧有死胡同。",
             "correct": false
           },
           {
-            "text": "交界处的道路很重要。",
+            "text": "前方有一条次要道路的T字路口。",
             "correct": false
           },
           {
-            "text": "通行费。",
+            "text": "前方有收费公路。",
             "correct": false
           }
         ]
@@ -35504,7 +35504,7 @@
             "correct": false
           },
           {
-            "text": "Bourself和您的乘客Coud向后扔。",
+            "text": "您本人和乘客都可能被向后抛出。",
             "correct": false
           },
           {
@@ -35587,19 +35587,19 @@
         "question": "这个标志是什么意思",
         "answers": [
           {
-            "text": "T-Chuncation以双关键的方式进行。",
+            "text": "前方为 T 型路口，有双车道。",
             "correct": true
           },
           {
-            "text": "低桥前方。",
+            "text": "前方有低桥。",
             "correct": false
           },
           {
-            "text": "Cul-de-sac前方。",
+            "text": "前面是死胡同。",
             "correct": false
           },
           {
-            "text": "速度向前。",
+            "text": "前方加速。",
             "correct": false
           }
         ]
@@ -38056,7 +38056,7 @@
             "correct": false
           },
           {
-            "text": "The brakes feel hard to press.",
+            "text": "感觉刹车很难踩。",
             "correct": false
           }
         ]
@@ -38678,7 +38678,7 @@
     "id": 530,
     "translations": {
       "zh": {
-        "question": "Rev Counter提供什么信息",
+        "question": "转速表提供什么信息",
         "answers": [
           {
             "text": "发动机革命。",
@@ -39500,19 +39500,19 @@
         "question": "这个标志是什么意思",
         "answers": [
           {
-            "text": "'U'-tern许可证。",
+            "text": "前方允许掉头。",
             "correct": false
           },
           {
-            "text": "Roadworks前方，运作有趣。",
+            "text": "前方道路施工，正在实施改道。",
             "correct": false
           },
           {
-            "text": "迷你行列前方。",
+            "text": "前方有小型环形交叉路口。",
             "correct": true
           },
           {
-            "text": "'U'-tern禁止前方。",
+            "text": "前方禁止掉头。",
             "correct": false
           }
         ]
@@ -40054,7 +40054,7 @@
             "correct": false
           },
           {
-            "text": "Remove filler cap from radiator and check for leakage.",
+            "text": "从散热器上取下加油口盖并检查是否有泄漏。",
             "correct": false
           },
           {
@@ -40410,15 +40410,15 @@
         "question": "电池安装在油或柴油机的电动车辆的目的是什么",
         "answers": [
           {
-            "text": "Run the parking lights.",
+            "text": "打开停车灯。",
             "correct": false
           },
           {
-            "text": "转动入门电机。",
+            "text": "转动起动马达。",
             "correct": false
           },
           {
-            "text": "向乘客车厢的热量提供。",
+            "text": "为乘客舱供暖。",
             "correct": false
           },
           {
@@ -42955,7 +42955,7 @@
     "id": 578,
     "translations": {
       "zh": {
-        "question": "Ender-Infoldo轮胎在车辆变速器上有什么",
+        "question": "轮胎充气不足会对车辆传动系统产生什么影响",
         "answers": [
           {
             "text": "它使换齿轮更加困难。",
@@ -44411,7 +44411,7 @@
     "id": 594,
     "translations": {
       "zh": {
-        "question": "何时禁止使用号角",
+        "question": "什么时候禁止使用喇叭",
         "answers": [
           {
             "text": "总是，但仅用于暂时使用。",
@@ -44426,7 +44426,7 @@
             "correct": false
           },
           {
-            "text": "Between 11:30pm and 7:00am.",
+            "text": "晚上 11:30 至早上 7:00 之间。",
             "correct": false
           }
         ]
@@ -44775,7 +44775,7 @@
     "id": 598,
     "translations": {
       "zh": {
-        "question": "什么可以受到不满轮胎影响的Adversley",
+        "question": "轮胎充气不足会造成哪些不利影响",
         "answers": [
           {
             "text": "停車處。",
@@ -49052,14 +49052,14 @@
     "id": 645,
     "translations": {
       "zh": {
-        "question": "当驾驶员打算逆转小路时该怎么办",
+        "question": "当司机打算倒车到岔路时，他们应该怎么做",
         "answers": [
           {
-            "text": "Turn on your hazard lights to signal your reverse direction.",
+            "text": "打开危险警告灯来指示反向方向。",
             "correct": false
           },
           {
-            "text": "Open the door fully to look behind.",
+            "text": "完全打开车门，向后看。",
             "correct": false
           },
           {
@@ -50068,7 +50068,7 @@
             "correct": false
           },
           {
-            "text": "在Dentse Fog或下雪中。",
+            "text": "在浓雾或飘雪中。",
             "correct": true
           }
         ]
@@ -50417,14 +50417,14 @@
     "id": 660,
     "translations": {
       "zh": {
-        "question": "如果在Esir外部Miregor中反射的灯光，驾驶员该怎么办",
+        "question": "如果被外后视镜反射的灯光晃眼，司机该怎么办",
         "answers": [
           {
             "text": "打开后灯。",
             "correct": false
           },
           {
-            "text": "temparaily调整镜子的角度。",
+            "text": "暂时调整镜子的角度。",
             "correct": true
           },
           {
@@ -50875,11 +50875,11 @@
         "question": "为什么要在不平坦的道路表面上驱动拖拉机",
         "answers": [
           {
-            "text": "掉落燃料不会从水箱中溢出。",
+            "text": "确保燃油不会从油箱中溢出。",
             "correct": false
           },
           {
-            "text": "TOVOID降低轮胎压力。",
+            "text": "避免轮胎压力降低。",
             "correct": false
           },
           {
@@ -50887,7 +50887,7 @@
             "correct": false
           },
           {
-            "text": "Tovoid Recary Buncing。",
+            "text": "以避免剧烈弹跳。",
             "correct": true
           }
         ]
@@ -53059,7 +53059,7 @@
         "question": "何时允许驾驶员在汽车中携带更多的通行证比安全带",
         "answers": [
           {
-            "text": "当Passngers不会干扰您的可见度时。",
+            "text": "当乘客不会干扰您的视线时。",
             "correct": false
           },
           {
@@ -55695,22 +55695,22 @@
     "id": 721,
     "translations": {
       "zh": {
-        "question": "用油过度填充发动机的积极作用是什么",
+        "question": "机油加注过量可能造成什么后果？",
         "answers": [
           {
-            "text": "It could burst the oil filter.",
+            "text": "这可能会爆裂机油滤清器。",
             "correct": false
           },
           {
-            "text": "It could damage the catalytic converter.",
+            "text": "这可能会损坏催化转化器。",
             "correct": true
           },
           {
-            "text": "It could reduce oil pressure.",
+            "text": "这可能会降低机油压力。",
             "correct": false
           },
           {
-            "text": "It could damage the oil pump.",
+            "text": "这可能会损坏机油泵。",
             "correct": false
           }
         ]
@@ -56332,7 +56332,7 @@
     "id": 729,
     "translations": {
       "zh": {
-        "question": "在什么情况下，Coud Bush Cross-Ply和Radial轮胎安装在车辆上",
+        "question": "在什么情况下，车辆可以同时安装斜交轮胎和子午线轮胎",
         "answers": [
           {
             "text": "拖曳雪地时。",
@@ -58076,7 +58076,7 @@
             "correct": false
           },
           {
-            "text": "Open the door and exit the vehicle without delay.",
+            "text": "立即打开车门并下车。",
             "correct": false
           }
         ]
@@ -65253,7 +65253,7 @@
         "question": "驾驶员应该定期检查自己的路线，在开车时可以欣赏道路的美景",
         "answers": [
           {
-            "text": "挡风玻璃洗衣机重新连续存在安型液。",
+            "text": "挡风玻璃清洗器储液罐中有足够的液体。",
             "correct": true
           },
           {
@@ -65261,7 +65261,7 @@
             "correct": false
           },
           {
-            "text": "The upholstery is clean.",
+            "text": "室内装潢很干净。",
             "correct": false
           },
           {
@@ -66797,22 +66797,22 @@
     "id": 844,
     "translations": {
       "zh": {
-        "question": "根据爆炸前的报告，性别更可能喝酒和开车，并涉及致命的碰撞",
+        "question": "根据事故前报告，哪个性别更有可能酒后驾车并发生致命碰撞",
         "answers": [
           {
             "text": "女性",
             "correct": false
           },
           {
-            "text": "邪恶和女性饮酒驱动equller",
+            "text": "男性和女性酒后驾驶情况相同",
             "correct": false
           },
           {
-            "text": "Neithher疾病和女性饮酒和开车",
+            "text": "无论男性还是女性，都不允许酒后驾驶",
             "correct": false
           },
           {
-            "text": "邪恶",
+            "text": "男性",
             "correct": true
           }
         ]
@@ -68071,7 +68071,7 @@
     "id": 858,
     "translations": {
       "zh": {
-        "question": "根据爆炸前的记者",
+        "question": "根据事故前报告，在已知酒精因素的碰撞事故中，有多少乘客死亡",
         "answers": [
           {
             "text": "在36至70之间",
@@ -68086,7 +68086,7 @@
             "correct": false
           },
           {
-            "text": "71每90",
+            "text": "71到 90",
             "correct": true
           }
         ]
@@ -68107,7 +68107,7 @@
             "correct": false
           },
           {
-            "text": "71 每 90",
+            "text": "71 to 90",
             "correct": true
           }
         ]
@@ -68128,7 +68128,7 @@
             "correct": false
           },
           {
-            "text": "71 每 90",
+            "text": "71 to 90",
             "correct": true
           }
         ]
@@ -68149,7 +68149,7 @@
             "correct": false
           },
           {
-            "text": "71 每 90",
+            "text": "71 to 90",
             "correct": true
           }
         ]
@@ -69803,11 +69803,11 @@
         "question": "这个标志是什么意思",
         "answers": [
           {
-            "text": "No animals permitted ahead.",
+            "text": "前方禁止携带动物。",
             "correct": false
           },
           {
-            "text": "绵羊市场未来。",
+            "text": "前方有羊市。",
             "correct": false
           },
           {
@@ -69815,7 +69815,7 @@
             "correct": false
           },
           {
-            "text": "绵羊前进的可能性。",
+            "text": "前方可能有羊。",
             "correct": true
           }
         ]
@@ -75445,19 +75445,19 @@
         "question": "这个标志是什么意思",
         "answers": [
           {
-            "text": "右边的“带有流量”的公交车道。",
+            "text": "右侧为“With-Flow”公交车道。",
             "correct": false
           },
           {
-            "text": "公共汽车和周期停车。",
+            "text": "前方有公交车和自行车停车场。",
             "correct": false
           },
           {
-            "text": "“ Contra-Flow”公交车道。",
+            "text": "前方为‘逆行’公交车道。",
             "correct": true
           },
           {
-            "text": "自行车轨道可以用公共汽车越过。",
+            "text": "公共汽车可以穿过自行车道。",
             "correct": false
           }
         ]
@@ -80450,19 +80450,19 @@
         "question": "这个标志是什么意思",
         "answers": [
           {
-            "text": "Cul-de-sacs均到左右。",
+            "text": "左右两侧均为死胡同。",
             "correct": false
           },
           {
-            "text": "与同等重要性的道路交错的十字路口。",
+            "text": "前方有阶梯状十字路口，两侧道路同等重要。",
             "correct": true
           },
           {
-            "text": "道路在左右前方都封闭。",
+            "text": "前方左右两侧道路均封闭。",
             "correct": false
           },
           {
-            "text": "交通电平坡道前方。",
+            "text": "前方有交通坡道。",
             "correct": false
           }
         ]

@@ -1428,10 +1428,10 @@
       "id": 20,
       "translations": {
         "zh": {
-          "question": "¿Este ciclorodado con pedaleo asistido eléctricamente (bicicleta eléctrica) puede circular por este carril",
+          "question": "这辆电动助力自行车可以通行此车道吗",
           "answers": [
             {
-              "text": "No, ya que la circulación de este tipo de vehículos en la vía pública se encuentra prohibida.",
+              "text": "不可以，因为这种车辆是被禁止在公共道路上行驶的。",
               "correct": false
             },
             {
@@ -1696,14 +1696,14 @@
       "id": 24,
       "translations": {
         "zh": {
-          "question": "Dadas las características de esta intersección, ¿el peatón también tiene prioridad",
+          "question": "由于该路口的特性，行人也享有优先通行权。",
           "answers": [
             {
-              "text": "No, pero si el peatón se encuentra cruzando, el conductor debe dejarlo pasar para no producir un siniestro vial.",
+              "text": "不是，但是如果有行人正在过马路，司机必须以不会引起交通事故的方式让他们通过。",
               "correct": false
             },
             {
-              "text": "Sí, siempre.",
+              "text": "是的，一直都是。",
               "correct": true
             }
           ]
@@ -1847,7 +1847,7 @@
           ]
         },
         "en": {
-          "question": "If youIt is the driver of the vehicle, what behavior should you adopt in the following situation",
+          "question": "If you are the driver of the vehicle, what behavior should you adopt in the following situation",
           "answers": [
             {
               "text": "Prioritize pedestrian circulation, unfailingly.",
@@ -1912,11 +1912,11 @@
               "correct": true
             },
             {
-              "text": "El conductor.",
+              "text": "司机",
               "correct": false
             },
             {
-              "text": "Es indistinto.",
+              "text": "目前还不清楚。",
               "correct": false
             }
           ]
@@ -2358,15 +2358,15 @@
           "question": "是什么表明在道路上划定的水平红色信号",
           "answers": [
             {
-              "text": "Metrobús交叉。",
+              "text": "Metrobús 十字路口。",
               "correct": true
             },
             {
-              "text": "紧急车辆的独家穿越。",
+              "text": "专用紧急车辆通道。",
               "correct": false
             },
             {
-              "text": "自行车交叉。",
+              "text": "自行车十字路口。",
               "correct": false
             }
           ]
@@ -2730,14 +2730,14 @@
       "id": 38,
       "translations": {
         "zh": {
-          "question": "¿Qué significa la demarcación horizontal que se visualiza en la imagen",
+          "question": "图像中显示的水平分界线是什么意思",
           "answers": [
             {
-              "text": "Cruce peligroso por tener poca iluminación.",
+              "text": "由于光线不足，过马路很危险。",
               "correct": false
             },
             {
-              "text": "Senda peatonal próxima a centros de salud.",
+              "text": "靠近健康中心的人行道。",
               "correct": false
             },
             {
@@ -2805,14 +2805,14 @@
       "id": 39,
       "translations": {
         "zh": {
-          "question": "是什么表示图像中显示的水平界定",
+          "question": "图像中显示的水平界限表示什么？",
           "answers": [
             {
-              "text": "学校MICROS停车。",
+              "text": "校车停车场。",
               "correct": false
             },
             {
-              "text": "拘留巷，用于促进和血统的学童。",
+              "text": "为学生的升级和降级设立留级通道。",
               "correct": true
             },
             {
@@ -2883,7 +2883,7 @@
           "question": "以下图像对应于：",
           "answers": [
             {
-              "text": "行人优先街。",
+              "text": "行人优先街道。",
               "correct": true
             },
             {
@@ -2891,7 +2891,7 @@
               "correct": false
             },
             {
-              "text": "Bicisenda街。",
+              "text": "比奇森达街。",
               "correct": false
             }
           ]
@@ -3242,7 +3242,7 @@
           "question": "是什么表示在交叉点处的以下绿色交叉",
           "answers": [
             {
-              "text": "它警告驾驶员关于Cyclovia或自行车交叉点的存在。",
+              "text": "它警告司机有自行车道或自行车过境点。",
               "correct": true
             },
             {
@@ -3546,11 +3546,11 @@
               "correct": false
             },
             {
-              "text": "Sector de la calzada señalizado especialmente con una separación física o demarcación horizontal para la circulación exclusiva de ciclorodados (bicicletas) y dispositivos de movilidad personal.",
+              "text": "道路信号区，特别是具有物理分隔或水平分界的区域，用于专供自行车和个人移动设备通行。",
               "correct": true
             },
             {
-              "text": "Sector señalizado y especialmente acondicionado en aceras y espacios verdes para la circulación de ciclorodados (bicicletas) y dispositivos de movilidad personal.",
+              "text": "该区域在人行道和绿地上进行了标记并特别调整，以方便自行车和个人移动设备的通行。",
               "correct": false
             }
           ]
@@ -5937,32 +5937,32 @@
           "question": "以下哪个选择与预防和减少道路事故直接相关",
           "answers": [
             {
-              "text": "Opción A.",
+              "text": "选项 A.",
               "correct": false
             },
             {
-              "text": "Opción B.",
+              "text": "选项  B.",
               "correct": true
             },
             {
-              "text": "Ambas respuestas, A y B, son correctas.",
+              "text": "答案 A 和 B 都是正确的。",
               "correct": false
             }
           ]
         },
         "en": {
-          "question": "¿Cuál de las siguientes opciones está directamente vinculada a la prevención y reducción de siniestros viales",
+          "question": "Which of the following options is directly linked to the prevention and reduction of road accidents?",
           "answers": [
             {
-              "text": "Opción A.",
+              "text": "Option A.",
               "correct": false
             },
             {
-              "text": "Opción B.",
+              "text": "Option B.",
               "correct": true
             },
             {
-              "text": "Ambas respuestas, A y B, son correctas.",
+              "text": "Both answers, A and B, are correct.",
               "correct": false
             }
           ]
@@ -6009,14 +6009,14 @@
       "id": 83,
       "translations": {
         "zh": {
-          "question": "Según Ley N°2265, ¿Cuándo debe realizar la primer VTV un automóvil 0km radicado en CABA",
+          "question": "根据第 2265 号法律，在 Caba 提交的 0 公里车辆应何时进行第一次 VTV",
           "answers": [
             {
-              "text": "Pasados los 3 años de antigüedad, en el mes que le corresponda, o superados los 60.000 km.",
+              "text": "3年后，当月行驶里程等于或超过6万公里",
               "correct": true
             },
             {
-              "text": "从代理机构撤回时立即。",
+              "text": "经代理机构选定后立即生效。",
               "correct": false
             },
             {
@@ -8230,7 +8230,7 @@
           "question": "在压力的影响下，驾驶变为：",
           "answers": [
             {
-              "text": "更鲁ck。",
+              "text": "更加鲁莽。",
               "correct": false
             },
             {
@@ -10049,7 +10049,7 @@
               "correct": false
             },
             {
-              "text": "Ambas respuestas, la A y la B, son correctas.",
+              "text": "答案 A 和 B 都是正确的。",
               "correct": true
             }
           ]
@@ -10550,7 +10550,7 @@
           "question": "根据第2148号法律，这表明该颜色的涂线",
           "answers": [
             {
-              "text": "保留的Cyloroded（自行车）和Motovehicles的独家停车区。",
+              "text": "为自行车和摩托车预留的专用停车区。",
               "correct": true
             },
             {
@@ -10933,7 +10933,7 @@
               "correct": true
             },
             {
-              "text": "C.信号",
+              "text": "信号 C.",
               "correct": false
             }
           ]
@@ -10950,7 +10950,7 @@
               "correct": true
             },
             {
-              "text": "The C. signal",
+              "text": "Signal C.",
               "correct": false
             }
           ]
@@ -11158,7 +11158,7 @@
               "correct": false
             },
             {
-              "text": "C.信号",
+              "text": "信号C.",
               "correct": true
             }
           ]
@@ -11175,7 +11175,7 @@
               "correct": false
             },
             {
-              "text": "The C. signal",
+              "text": "Signal C.",
               "correct": true
             }
           ]
@@ -11233,7 +11233,7 @@
               "correct": false
             },
             {
-              "text": "C.信号",
+              "text": "信号C.",
               "correct": false
             }
           ]
@@ -11250,7 +11250,7 @@
               "correct": false
             },
             {
-              "text": "The C. signal",
+              "text": "Signal C.",
               "correct": false
             }
           ]
@@ -13462,7 +13462,7 @@
               "correct": false
             },
             {
-              "text": "B和C.车辆",
+              "text": "B和C车辆",
               "correct": true
             }
           ]
@@ -13479,7 +13479,7 @@
               "correct": false
             },
             {
-              "text": "B and C. vehicles",
+              "text": "B and C vehicles",
               "correct": true
             }
           ]
@@ -14385,11 +14385,11 @@
               "correct": false
             },
             {
-              "text": "车辆A.",
+              "text": "车辆B.",
               "correct": false
             },
             {
-              "text": "车辆A.",
+              "text": "车辆C.",
               "correct": true
             }
           ]
@@ -14402,11 +14402,11 @@
               "correct": false
             },
             {
-              "text": "Vehicle A.",
+              "text": "Vehicle B.",
               "correct": false
             },
             {
-              "text": "Vehicle A.",
+              "text": "Vehicle C.",
               "correct": true
             }
           ]
@@ -14419,11 +14419,11 @@
               "correct": false
             },
             {
-              "text": "Vozidlo A.",
+              "text": "Vozidlo B.",
               "correct": false
             },
             {
-              "text": "Vozidlo A.",
+              "text": "Vozidlo C.",
               "correct": true
             }
           ]
@@ -14436,11 +14436,11 @@
               "correct": false
             },
             {
-              "text": "El vehículo A.",
+              "text": "El vehículo B.",
               "correct": false
             },
             {
-              "text": "El vehículo A.",
+              "text": "El vehículo C.",
               "correct": true
             }
           ]
@@ -16055,7 +16055,7 @@
       "id": 221,
       "translations": {
         "zh": {
-          "question": "在AV的这一部分中，私人汽车的最大允许速度是多少。 Costanera Rafael强迫",
+          "question": "私家车在 Costanera Rafael 大道此路段的最大限速是多少",
           "answers": [
             {
               "text": "60 km/h。",
@@ -16757,7 +16757,7 @@
       "id": 231,
       "translations": {
         "zh": {
-          "question": "AV中私家车的最大允许速度是多少。义务坎蒂洛（Cantilo），除了指示另一个速度的标牌",
+          "question": "除指示其他速度的标志外，Av. Intendente Cantilo 私家车的最高允许速度是多少",
           "answers": [
             {
               "text": "60 km/h。",
