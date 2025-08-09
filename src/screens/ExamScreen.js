@@ -423,8 +423,10 @@ const ExamScreen = ({ navigation }) => {
             <View style={styles.imageContainer}>
               <Image 
                 source={question.signalImage} 
-                style={styles.questionImage}
-                {...getImageProps()}
+                {...getImageProps({
+                  ...styles.questionImage,
+                  resizeMode: 'contain'
+                })}
               />
             </View>
           )}
