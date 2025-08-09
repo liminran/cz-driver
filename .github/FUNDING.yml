@@ -8,6 +8,8 @@ github: minli
 
 # PayPal 收款
 paypal: your-paypal-email@example.com
+wise:https://wise.com/pay/me/minl550
+
 
 # 微信支付（通过自定义链接）
 custom:
