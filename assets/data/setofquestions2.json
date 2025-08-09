@@ -36676,7 +36676,7 @@
     "id": 508,
     "translations": {
       "zh": {
-        "question": "以下哪项是需要保持状况良好的驱动程序",
+        "question": "下列哪项是驾驶员需要保持良好状态的",
         "answers": [
           {
             "text": "内饰。",
@@ -36691,7 +36691,7 @@
             "correct": false
           },
           {
-            "text": "Airfreshener。",
+            "text": "空气清新剂。",
             "correct": false
           }
         ]

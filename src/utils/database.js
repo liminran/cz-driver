@@ -590,31 +590,33 @@ export const getFavoriteQuestions = async () => {
 
 // 记录错题
 export const recordMistake = async (questionId, userAnswer) => {
-  const now = new Date().toISOString();
-  const mistakeId = `mistake_${questionId}_${Date.now()}`;
+  const nowIso = new Date().toISOString();
+  const nowTs = Date.now();
+  const mistakeId = `mistake_${questionId}_${nowTs}`;
   
   if (isWeb) {
     try {
       const storedMistakes = await AsyncStorage.getItem('mistakes');
       const mistakes = storedMistakes ? JSON.parse(storedMistakes) : [];
       
-      // 检查是否已存在该错题
-      const existingIndex = mistakes.findIndex(m => m.questionId === questionId);
+      // 统一用字符串比较，避免类型不一致导致查找失败
+      const existingIndex = mistakes.findIndex(m => (m.questionId?.toString() || '') === questionId.toString());
       
       if (existingIndex >= 0) {
-        // 更新已有错题记录
-        mistakes[existingIndex].attempts += 1;
-        mistakes[existingIndex].lastAttempt = now;
-        mistakes[existingIndex].userAnswer = userAnswer;
+        // 更新已有错题记录，并刷新排序时间戳
+        mistakes[existingIndex].attempts = (mistakes[existingIndex].attempts || 0) + 1;
+        mistakes[existingIndex].lastAttempt = nowIso;
+        mistakes[existingIndex].userAnswer = userAnswer ?? mistakes[existingIndex].userAnswer ?? null;
+        mistakes[existingIndex].timestamp = nowTs;
       } else {
         // 添加新错题记录
         mistakes.push({
           id: mistakeId,
-          questionId,
+          questionId: questionId?.toString(),
           attempts: 1,
-          lastAttempt: now,
-          userAnswer,
-          timestamp: Date.now()
+          lastAttempt: nowIso,
+          userAnswer: userAnswer ?? null,
+          timestamp: nowTs
         });
       }
       
@@ -628,41 +630,111 @@ export const recordMistake = async (questionId, userAnswer) => {
     return new Promise((resolve, reject) => {
       const db = getDatabase();
       db.transaction(tx => {
-        // 检查是否已存在该错题
+        // 确保表结构包含需要的列
+        tx.executeSql(
+          `CREATE TABLE IF NOT EXISTS mistakes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            questionId TEXT UNIQUE,
+            userAnswer TEXT,
+            timestamp INTEGER
+          );`
+        );
+        
+        // 查询是否已存在该错题
         tx.executeSql(
           'SELECT * FROM mistakes WHERE questionId = ?;',
-          [questionId],
+          [questionId.toString()],
           (_, { rows }) => {
             if (rows.length === 0) {
-              // 添加新错题记录
+              // 插入新记录
               tx.executeSql(
-                'INSERT INTO mistakes (id, questionId, attempts, lastAttempt, userAnswer) VALUES (?, ?, ?, ?, ?);',
-                [mistakeId, questionId, 1, now, userAnswer],
+                'INSERT INTO mistakes (questionId, userAnswer, timestamp) VALUES (?, ?, ?);',
+                [questionId.toString(), userAnswer ?? null, nowTs],
                 () => resolve(true),
-                (_, error) => {
-                  reject(error);
-                  return false;
-                }
+                (_, error) => { reject(error); return false; }
               );
             } else {
-              // 更新已有错题记录
+              // 更新已有记录（刷新时间戳以便最新排序）
               tx.executeSql(
-                'UPDATE mistakes SET attempts = attempts + 1, lastAttempt = ?, userAnswer = ? WHERE questionId = ?;',
-                [now, userAnswer, questionId],
+                'UPDATE mistakes SET userAnswer = ?, timestamp = ? WHERE questionId = ?;',
+                [userAnswer ?? rows._array[0].userAnswer ?? null, nowTs, questionId.toString()],
                 () => resolve(true),
-                (_, error) => {
-                  reject(error);
-                  return false;
-                }
+                (_, error) => { reject(error); return false; }
               );
             }
           },
-          (_, error) => {
-            reject(error);
-            return false;
-          }
+          (_, error) => { reject(error); return false; }
         );
       });
+    });
+  }
+};
+
+// 批量记录错题
+export const recordMistakesBatch = async (items) => {
+  if (!Array.isArray(items) || items.length === 0) return true;
+  const nowTs = Date.now();
+  const nowIso = new Date(nowTs).toISOString();
+
+  if (isWeb) {
+    try {
+      const stored = await AsyncStorage.getItem('mistakes');
+      const mistakes = stored ? JSON.parse(stored) : [];
+
+      const byId = new Map(mistakes.map(m => [ (m.questionId?.toString() || ''), m ]));
+      for (const it of items) {
+        const qid = it.id?.toString() || it.questionId?.toString();
+        if (!qid) continue;
+        const existing = byId.get(qid);
+        if (existing) {
+          existing.attempts = (existing.attempts || 0) + 1;
+          existing.lastAttempt = nowIso;
+          if (it.userAnswer !== undefined) existing.userAnswer = it.userAnswer;
+          existing.timestamp = nowTs;
+        } else {
+          byId.set(qid, {
+            id: `mistake_${qid}_${nowTs}`,
+            questionId: qid,
+            attempts: 1,
+            lastAttempt: nowIso,
+            userAnswer: it.userAnswer ?? null,
+            timestamp: nowTs
+          });
+        }
+      }
+      const merged = Array.from(byId.values());
+      await AsyncStorage.setItem('mistakes', JSON.stringify(merged));
+      return true;
+    } catch (e) {
+      console.error('Failed to batch record mistakes (web):', e);
+      return false;
+    }
+  } else {
+    return new Promise((resolve, reject) => {
+      const db = getDatabase();
+      db.transaction(tx => {
+        // ensure table
+        tx.executeSql(
+          `CREATE TABLE IF NOT EXISTS mistakes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            questionId TEXT UNIQUE,
+            userAnswer TEXT,
+            timestamp INTEGER
+          );`
+        );
+        for (const it of items) {
+          const qid = (it.id ?? it.questionId)?.toString();
+          if (!qid) continue;
+          const ua = it.userAnswer ?? null;
+          tx.executeSql(
+            'INSERT OR REPLACE INTO mistakes (questionId, userAnswer, timestamp) VALUES (?, ?, ?);',
+            [qid, ua, nowTs]
+          );
+        }
+      }, error => {
+        console.error('Batch record mistakes failed (native):', error);
+        reject(error);
+      }, () => resolve(true));
     });
   }
 };
@@ -672,7 +744,9 @@ export const getMistakes = async () => {
   if (isWeb) {
     try {
       const mistakesData = await AsyncStorage.getItem('mistakes');
-      return mistakesData ? JSON.parse(mistakesData) : [];
+      const list = mistakesData ? JSON.parse(mistakesData) : [];
+      // 保证按时间倒序返回
+      return list.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
     } catch (error) {
       console.error('Failed to get mistake questions from web storage:', error);
       return [];
@@ -685,13 +759,8 @@ export const getMistakes = async () => {
           `SELECT m.questionId, m.userAnswer, m.timestamp FROM mistakes m 
            ORDER BY m.timestamp DESC;`,
           [],
-          (_, { rows }) => {
-            resolve(rows._array);
-          },
-          (_, error) => {
-            reject(error);
-            return false;
-          }
+          (_, { rows }) => { resolve(rows._array); },
+          (_, error) => { reject(error); return false; }
         );
       });
     });

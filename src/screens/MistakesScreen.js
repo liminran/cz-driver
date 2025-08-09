@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityIndicator, Alert, Dimensions, FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, Dimensions, FlatList, Image, Platform, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import assetDataService from '../utils/assetDataService';
 import { clearMistakes, getMistakes, removeMistake } from '../utils/database';
 import { getImageProps } from '../utils/styleUtils';
@@ -103,48 +103,43 @@ const MistakesScreen = ({ navigation }) => {
       console.error('Missing questionId for removal');
       return;
     }
-    
-    Alert.alert(
-      '删除错题',
-      '确定要从错题列表中删除此题目吗？',
-      [
-        { text: '取消', style: 'cancel' },
-        { 
-          text: '确定', 
-          onPress: async () => {
-            try {
-              setLoading(true); // 添加loading状态
-              console.log(`Removing mistake with ID: ${questionId}`);
-              
-              // 执行删除操作
-              const result = await removeMistake(questionId);
-              console.log('Remove result:', result);
-              
-              // 如果成功删除，更新UI
-              if (result) {
-                // 直接从当前state中移除，避免重新加载全部数据
-                const updatedMistakes = mistakes.filter(m => 
-                  m.questionId.toString() !== questionId.toString()
-                );
-                setMistakes(updatedMistakes);
-                console.log(`Updated mistakes in UI: ${updatedMistakes.length}`);
-              } else {
-                console.warn('Failed to remove mistake, reloading data...');
-                // 如果删除失败，尝试重新加载全部数据
-                const updatedMistakes = await getMistakes();
-                const mistakesWithDetails = await processMistakes(updatedMistakes);
-                setMistakes(mistakesWithDetails);
-              }
-            } catch (error) {
-              console.error('Error removing mistake:', error);
-              Alert.alert('错误', '删除错题失败，请稍后重试。');
-            } finally {
-              setLoading(false);
-            }
-          }
+    const doRemove = async () => {
+      try {
+        setLoading(true);
+        console.log(`Removing mistake with ID: ${questionId}`);
+        const result = await removeMistake(questionId);
+        console.log('Remove result:', result);
+        if (result) {
+          const updatedRecords = await getMistakes();
+          const updatedMistakes = await processMistakes(updatedRecords);
+          setMistakes(updatedMistakes);
+          console.log(`Reloaded mistakes after removal: ${updatedMistakes.length}`);
+        } else {
+          console.warn('Failed to remove mistake, reloading data...');
+          const updatedMistakes = await getMistakes();
+          const mistakesWithDetails = await processMistakes(updatedMistakes);
+          setMistakes(mistakesWithDetails);
         }
-      ]
-    );
+      } catch (error) {
+        console.error('Error removing mistake:', error);
+        if (Platform.OS !== 'web') {
+          Alert.alert('错误', '删除错题失败，请稍后重试。');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (Platform.OS === 'web') {
+      const ok = typeof window !== 'undefined' && window.confirm('确定要从错题列表中删除此题目吗？');
+      if (ok) doRemove();
+      return;
+    }
+
+    Alert.alert('删除错题','确定要从错题列表中删除此题目吗？',[
+      { text: '取消', style: 'cancel' },
+      { text: '确定', onPress: doRemove }
+    ]);
   };
 
   // 添加处理错题数据的辅助函数
@@ -191,49 +186,44 @@ const MistakesScreen = ({ navigation }) => {
       console.log('No mistakes to clear');
       return;
     }
-    
-    Alert.alert(
-      '清空错题',
-      '确定要清空所有错题记录吗？此操作不可恢复。',
-      [
-        { text: '取消', style: 'cancel' },
-        { 
-          text: '确定', 
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              setLoading(true); // 添加加载状态
-              console.log('Clearing all mistakes');
-              
-              // 尝试清空错题
-              await clearMistakes();
-              console.log('All mistakes cleared');
-              
-              // 直接清空当前状态
-              setMistakes([]);
-              
-              // 用一个提示告知用户操作成功
-              Alert.alert('操作成功', '所有错题记录已清空');
-            } catch (error) {
-              console.error('Error clearing mistakes:', error);
-              
-              // 出错时尝试使用备用方法
-              try {
-                console.log('Trying alternative method to clear mistakes...');
-                await AsyncStorage.setItem('mistakes', JSON.stringify([]));
-                setMistakes([]);
-                Alert.alert('操作成功', '所有错题记录已清空');
-              } catch (backupError) {
-                console.error('Backup clear method also failed:', backupError);
-                Alert.alert('错误', '清空错题失败，请稍后重试。');
-              }
-            } finally {
-              setLoading(false);
-            }
+    const doClear = async () => {
+      try {
+        setLoading(true);
+        console.log('Clearing all mistakes');
+        await clearMistakes();
+        setMistakes([]);
+        if (Platform.OS !== 'web') {
+          Alert.alert('操作成功', '所有错题记录已清空');
+        }
+      } catch (error) {
+        console.error('Error clearing mistakes:', error);
+        try {
+          await AsyncStorage.setItem('mistakes', JSON.stringify([]));
+          setMistakes([]);
+          if (Platform.OS !== 'web') {
+            Alert.alert('操作成功', '所有错题记录已清空');
+          }
+        } catch (backupError) {
+          console.error('Backup clear method also failed:', backupError);
+          if (Platform.OS !== 'web') {
+            Alert.alert('错误', '清空错题失败，请稍后重试。');
           }
         }
-      ]
-    );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (Platform.OS === 'web') {
+      const ok = typeof window !== 'undefined' && window.confirm('确定要清空所有错题记录吗？此操作不可恢复。');
+      if (ok) doClear();
+      return;
+    }
+
+    Alert.alert('清空错题','确定要清空所有错题记录吗？此操作不可恢复。',[
+      { text: '取消', style: 'cancel' },
+      { text: '确定', style: 'destructive', onPress: doClear }
+    ]);
   };
 
   // 查看错题详情

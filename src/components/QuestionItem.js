@@ -36,9 +36,9 @@ const QuestionItem = ({
     if (!examMode) {
       setShowCorrectAnswer(true);
       
-      // 如果答案错误，记录错题
+      // 如果答案错误，记录错题（带上用户选择）
       if (!isCorrect) {
-        recordMistake(question.id);
+        recordMistake(question.id, answerId);
       }
     }
     

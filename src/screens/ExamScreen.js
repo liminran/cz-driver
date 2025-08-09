@@ -6,6 +6,7 @@ import { ActivityIndicator, Alert, Dimensions, FlatList, Image, Platform, SafeAr
 import QuestionLanguageSwitcher from '../components/QuestionLanguageSwitcher';
 import assetDataService from '../utils/assetDataService';
 import { recordMistake, saveExamResult, updateStudyProgress } from '../utils/database';
+import { recordMistakesBatch } from '../utils/database';
 import { getImageProps } from '../utils/styleUtils';
 
 // 获取设备尺寸
@@ -268,12 +269,12 @@ const ExamScreen = ({ navigation }) => {
         
         if (isCorrect) {
           correctCount++;
-        } else if (userAnswer) {
-          // 添加到错题列表，稍后批量处理
+        } else {
+          // 包含未作答（userAnswer 为空）的情况
           mistakesCount++;
           mistakesToRecord.push({
             id: question.id,
-            userAnswer: userAnswer
+            userAnswer: userAnswer ?? null
           });
         }
         
@@ -284,21 +285,20 @@ const ExamScreen = ({ navigation }) => {
         };
       });
       
-      // 记录错题
+      // 记录错题（批量，避免并发写入遗漏）
       if (mistakesToRecord.length > 0) {
-        console.log(`Recording ${mistakesToRecord.length} mistakes...`);
+        console.log(`Recording ${mistakesToRecord.length} mistakes (batch)...`);
         try {
-          // 使用Promise.all批量处理所有错题
-          const mistakePromises = mistakesToRecord.map(mistake => 
-            recordMistake(mistake.id, mistake.userAnswer)
-              .catch(e => console.error(`Failed to record mistake for question ${mistake.id}:`, e))
-          );
-          
-          // 等待所有错题记录完成
-          await Promise.all(mistakePromises);
+          await recordMistakesBatch(mistakesToRecord);
           console.log('All mistakes recorded successfully');
         } catch (e) {
           console.error('Error batch recording mistakes:', e);
+          // 回退到逐条写入
+          try {
+            await Promise.all(mistakesToRecord.map(m => recordMistake(m.id, m.userAnswer)));
+          } catch (e2) {
+            console.error('Fallback single record also failed:', e2);
+          }
         }
       }
       
