@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "predeploy": "expo export:web",
+    "predeploy": "expo export -p web",
     "deploy": "gh-pages -d web-build",
     "start": "expo start",
     "start:clear": "expo start --clear",
@@ -11,8 +11,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "build:web": "expo export:web",
-    "build:netlify": "expo export:web --output-dir dist"
+    "build:web": "expo export -p web",
+    "build:netlify": "expo export -p web"
   },
   "homepage": "https://liminran.github.io/cz-driver/",
   "dependencies": {
