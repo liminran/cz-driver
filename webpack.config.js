@@ -7,6 +7,7 @@ module.exports = async function (env, argv) {
     babel: {
       dangerouslyAddModulePathsToTranspile: [
         'expo-sqlite',
+        '@expo/vector-icons',
       ],
     },
   }, argv);
@@ -15,7 +16,18 @@ module.exports = async function (env, argv) {
   config.resolve.fallback = {
     ...config.resolve.fallback,
     'wa-sqlite/wa-sqlite.wasm': false,
+    fs: false,
+    path: false,
+    crypto: false,
   };
+
+  // 确保 Web 平台支持
+  if (env.platform === 'web') {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-native$': 'react-native-web',
+    };
+  }
 
   return config;
 }; 

@@ -57,10 +57,11 @@ const BrowseScreen = () => {
         // 获取所有类别
         const allCategories = await assetDataService.getAllCategories();
         
-        // 转换类别格式
+        // 转换类别格式（过滤掉数据源中的 all 并去重）
+        const uniqueCats = Array.from(new Set((allCategories || []).filter(cat => !!cat && cat !== 'all')));
         const formattedCategories = [
           { id: 'all', title: '所有题目' },
-          ...allCategories.map(cat => ({
+          ...uniqueCats.map(cat => ({
             id: cat,
             title: assetDataService.getChineseCategoryName(cat)
           }))

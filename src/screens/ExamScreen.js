@@ -61,10 +61,11 @@ const ExamScreen = ({ navigation }) => {
         // 获取所有类别
         const allCategories = await assetDataService.getAllCategories();
         
-        // 构建类别选项
+        // 构建类别选项（过滤掉数据源中的 all 并去重）
+        const uniqueCats = Array.from(new Set((allCategories || []).filter(cat => !!cat && cat !== 'all')));
         const categoryItems = [
           { id: 'all', title: '所有题目' },
-          ...allCategories.map(cat => ({
+          ...uniqueCats.map(cat => ({
             id: cat,
             title: assetDataService.getChineseCategoryName(cat)
           }))
@@ -534,7 +535,7 @@ const ExamScreen = ({ navigation }) => {
   const renderExamResults = () => {
     if (!results) {
       console.error('No results available to render');
-    return (
+   return (
         <View style={styles.errorContainer}>
           <Ionicons name="alert-circle" size={responsiveFontSize(50)} color="#F44336" />
           <Text style={styles.errorText}>考试结果加载失败</Text>

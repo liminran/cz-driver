@@ -69,7 +69,7 @@ export default function App() {
   // 渲染主应用
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer independent={true}>
         <StatusBar barStyle="dark-content" backgroundColor="#f8f9fa" />
         <AppNavigator />
       </NavigationContainer>

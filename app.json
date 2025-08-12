@@ -30,7 +30,14 @@
       "versionCode": 1
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static",
+      "build": {
+        "babel": {
+          "include": ["@expo/vector-icons"]
+        }
+      }
     },
     "extra": {
       "eas": {
@@ -44,8 +51,10 @@
         {
           "username": "yourexpouser"
         }
-      ]
+      ],
+      "expo-router"
     ],
+    "scheme": "driving-license-test",
     "updates": {
       "enabled": true,
       "fallbackToCacheTimeout": 0,
