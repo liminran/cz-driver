@@ -17,6 +17,9 @@ export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [initError, setInitError] = useState(null);
 
+  // 禁用 Web URL 同步，地址栏保持不变
+  const linking = { enabled: false };
+
   // 初始化应用
   useEffect(() => {
     async function prepare() {
@@ -69,7 +72,7 @@ export default function App() {
   // 渲染主应用
   return (
     <SafeAreaProvider>
-      <NavigationContainer independent={true}>
+      <NavigationContainer independent={true} linking={linking}>
         <StatusBar barStyle="dark-content" backgroundColor="#f8f9fa" />
         <AppNavigator />
       </NavigationContainer>
