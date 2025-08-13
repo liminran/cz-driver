@@ -557,6 +557,25 @@ const getQuestionTranslation = (question, language = 'zh') => {
   }
 };
 
+// 静态题库映射，优先使用以避免 Web 上动态 import 生成反斜杠路径
+let STATIC_QUESTION_SETS = null;
+const getStaticQuestionSet = (setNumber) => {
+	if (!STATIC_QUESTION_SETS) {
+		try {
+			STATIC_QUESTION_SETS = {
+				0: require('../../assets/data/setofquestions0.json'),
+				1: require('../../assets/data/setofquestions1.json'),
+				2: require('../../assets/data/setofquestions2.json'),
+				3: require('../../assets/data/setofquestions3.json'),
+			};
+		} catch (e) {
+			// 允许个别文件不存在
+			STATIC_QUESTION_SETS = STATIC_QUESTION_SETS || {};
+		}
+	}
+	return STATIC_QUESTION_SETS[setNumber];
+};
+
 /**
  * 加载题目数据集
  * @param {number} setNumber - 题目集编号
@@ -564,101 +583,91 @@ const getQuestionTranslation = (question, language = 'zh') => {
  * @returns {Promise<Array>} 题目数组
  */
 export const loadQuestionSet = async (setNumber = 0, language = 'zh') => {
-  try {
-    // 动态导入JSON数据
-    let questionSet;
-    
-    try {
-      if (setNumber === 0) {
-        questionSet = await import('../../assets/data/setofquestions0.json');
-      } else if (setNumber === 1) {
-        questionSet = await import('../../assets/data/setofquestions1.json');
-      } else if (setNumber === 2) {
-        questionSet = await import('../../assets/data/setofquestions2.json');
-      } else {
-        // 默认加载第2集的修复版本
-        questionSet = await import('../../assets/data/setofquestions3.json');
-      }
-      console.log(`加载题库 ${setNumber}`);
-    } catch (error) {
-      console.warn(`加载题集 ${setNumber} 失败，使用默认题集2: ${error.message}`);
-    }
-    
-    // 确保我们有可用的数据
-    if (!questionSet) {
-      throw new Error(`题库 ${setNumber} 数据为空`);
-    }
-    
-    const questions = Array.isArray(questionSet.default) ? questionSet.default : questionSet;
-    
-    // 处理题目中的图片引用并应用翻译
-    return questions.map(question => {
-      // 获取翻译后的问题
-      const translatedQuestion = getQuestionTranslation(question, language);
-      
-      // 确保answers字段格式正确
-      if (translatedQuestion.answers) {
-        translatedQuestion.options = translatedQuestion.answers.map((ans, idx) => ({
-          id: String.fromCharCode(65 + idx), // A, B, C...
-          text: ans.text,
-          isCorrect: ans.correct
-        }));
-      }
-      
-      // 如果有picture属性，提取信号ID
-      if (translatedQuestion.picture) {
-        const signalMatch = translatedQuestion.picture.match(/signal(\d+)/i);
-        if (signalMatch && signalMatch[1]) {
-          const signalId = parseInt(signalMatch[1], 10);
-          if (trafficSignalImages[signalId]) {
-            translatedQuestion.signalImage = trafficSignalImages[signalId];
-          }
-        } else if (translatedQuestion.picture.includes('images/image')) {
-          // 处理普通图片路径，如 "images/image47.png"
-          try {
-            const imageMatch = translatedQuestion.picture.match(/images\/image(\d+)\.png/i);
-            if (imageMatch && imageMatch[1]) {
-              const imageNumber = imageMatch[1];
-              // 使用预加载的图片资源
-              if (imageAssets[imageNumber]) {
-                translatedQuestion.signalImage = imageAssets[imageNumber];
-                console.log(`加载图片: image${imageNumber}.png`);
-              } else {
-                console.warn(`未预加载图片: image${imageNumber}.png`);
-              }
-            }
-          } catch (error) {
-            console.warn(`无法加载图片: ${translatedQuestion.picture}`, error);
-          }
-        } else if (translatedQuestion.picture.includes('image2/')) {
-          // 处理 image2 目录下的 jpg 资源，如 "image2/motorwayend.jpg"
-          try {
-            const fileName = translatedQuestion.picture.split('/').pop();
-            if (fileName && image2Assets[fileName]) {
-              translatedQuestion.signalImage = image2Assets[fileName];
-              console.log(`加载图片: image2/${fileName}`);
-            } else {
-              console.warn(`未预加载图片: image2/${fileName}`);
-            }
-          } catch (error) {
-            console.warn(`无法加载图片: ${translatedQuestion.picture}`, error);
-          }
-        }
-      }
-      
-      // 确保所有必要的字段都存在
-      return {
-        ...translatedQuestion,
-        id: translatedQuestion.id || `temp_${setNumber}_${Math.random().toString(36).substr(2, 9)}`,
-        category: translatedQuestion.category || 'general',
-        answers: translatedQuestion.answers || [],
-        options: translatedQuestion.options || []
-      };
-    });
-  } catch (error) {
-    console.error(`Failed to load question set ${setNumber}:`, error);
-    throw error; // 抛出错误以便上层处理
-  }
+	try {
+		// 先尝试使用静态题库映射，避免 Web 上路径问题
+		let questionSet = getStaticQuestionSet(setNumber);
+
+		// 如果静态映射没有可用数据，再退回到动态导入
+		if (!questionSet) {
+			try {
+				if (setNumber === 0) {
+					questionSet = await import('../../assets/data/setofquestions0.json');
+				} else if (setNumber === 1) {
+					questionSet = await import('../../assets/data/setofquestions1.json');
+				} else if (setNumber === 2) {
+					questionSet = await import('../../assets/data/setofquestions2.json');
+				} else {
+					questionSet = await import('../../assets/data/setofquestions3.json');
+				}
+				console.log(`加载题库 ${setNumber}`);
+			} catch (error) {
+				console.warn(`加载题集 ${setNumber} 失败（动态导入），使用默认题集2: ${error.message}`);
+			}
+		}
+
+		if (!questionSet) {
+			throw new Error(`题库 ${setNumber} 数据为空`);
+		}
+
+		const questions = Array.isArray(questionSet.default) ? questionSet.default : questionSet;
+		return questions.map(question => {
+			const translatedQuestion = getQuestionTranslation(question, language);
+			if (translatedQuestion.answers) {
+				translatedQuestion.options = translatedQuestion.answers.map((ans, idx) => ({
+					id: String.fromCharCode(65 + idx),
+					text: ans.text,
+					isCorrect: ans.correct
+				}));
+			}
+			if (translatedQuestion.picture) {
+				const signalMatch = translatedQuestion.picture.match(/signal(\d+)/i);
+				if (signalMatch && signalMatch[1]) {
+					const signalId = parseInt(signalMatch[1], 10);
+					if (trafficSignalImages[signalId]) {
+						translatedQuestion.signalImage = trafficSignalImages[signalId];
+					}
+				} else if (translatedQuestion.picture.includes('images/image')) {
+					try {
+						const imageMatch = translatedQuestion.picture.match(/images\/image(\d+)\.png/i);
+						if (imageMatch && imageMatch[1]) {
+							const imageNumber = imageMatch[1];
+							if (imageAssets[imageNumber]) {
+								translatedQuestion.signalImage = imageAssets[imageNumber];
+								console.log(`加载图片: image${imageNumber}.png`);
+							} else {
+								console.warn(`未预加载图片: image${imageNumber}.png`);
+							}
+						}
+					} catch (error) {
+						console.warn(`无法加载图片: ${translatedQuestion.picture}`, error);
+					}
+				} else if (translatedQuestion.picture.includes('image2/')) {
+					try {
+						const fileName = translatedQuestion.picture.split('/').pop();
+						if (fileName && image2Assets[fileName]) {
+							translatedQuestion.signalImage = image2Assets[fileName];
+							console.log(`加载图片: image2/${fileName}`);
+						} else {
+							console.warn(`未预加载图片: image2/${fileName}`);
+						}
+					} catch (error) {
+						console.warn(`无法加载图片: ${translatedQuestion.picture}`, error);
+					}
+				}
+			}
+
+			return {
+				...translatedQuestion,
+				id: translatedQuestion.id || `temp_${setNumber}_${Math.random().toString(36).substr(2, 9)}`,
+				category: translatedQuestion.category || 'general',
+				answers: translatedQuestion.answers || [],
+				options: translatedQuestion.options || []
+			};
+		});
+	} catch (error) {
+		console.error(`Failed to load question set ${setNumber}:`, error);
+		throw error;
+	}
 };
 
 /**
